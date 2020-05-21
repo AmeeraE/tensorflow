@@ -17,7 +17,7 @@
 
 """Prepare data for further process.
 
-Read data from "/slope", "/ring", "/wing", "/negative" and save them
+Read data from "/left", "/back", "/front", "/negative" and save them
 in "/data/complete_data" in python dict format.
 
 It will generate a new file with the following structure:
@@ -36,7 +36,7 @@ import random
 
 LABEL_NAME = "gesture"
 DATA_NAME = "accel_ms2_xyz"
-folders = ["wing", "ring", "slope"]
+folders = ["front", "back", "left"]
 names = [
     "hyw", "shiyun", "tangsy", "dengyl", "zhangxy", "pengxl", "liucx",
     "jiangyh", "xunkai"
