@@ -34,9 +34,9 @@ logdir = "logs/scalars/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
 
 
-#def reshape_function(data, label):
- # reshaped_data = tf.reshape(data, [-1, 3, 1])
- # return reshaped_data, label
+def reshape_function(data, label):
+  reshaped_data = tf.reshape(data, [-1, 3, 1])
+  return reshaped_data, label
  
 
 
@@ -128,9 +128,9 @@ def train_net(
       loss="sparse_categorical_crossentropy",
       metrics=["accuracy"])
   if kind == "CNN":
-    #train_data = train_data.map(reshape_function)
-    #test_data = test_data.map(reshape_function)
-    #valid_data = valid_data.map(reshape_function)
+    train_data = train_data.map(reshape_function)
+    test_data = test_data.map(reshape_function)
+    valid_data = valid_data.map(reshape_function)
   test_labels = np.zeros(test_len)
   idx = 0
   for data, label in test_data:  # pylint: disable=unused-variable
